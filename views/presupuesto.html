@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>contacto</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+        <img src="../assets/fotos/sin fondo.png" width="40" height="40" alt="logo">
+        </div>
+            <ul>
+                <li><a href="../index.html" id="active2">inicio</a></li>
+                <li><a href="./presupuesto.html" id="active">presupuesto</a> </li>
+                <li><a href="./imagenes.html" id="active2">galeria</a></li>
+                <li><a href="./contacto.html" id="active2">contacto</a></li>
+            </ul>
+        </nav>
+    <form action="https://formsubmit.co/el/sakunu" method="post">
+     <label1 for="nombre">nombre</label1><br>
+     <input required type="text" name="nombre" id="nombre" placeholder="Escriba su nombre" pattern="[A-Za-z ]+" ><br>
+     <label2 for="email">email</label2><br>
+     <input required type="email" name="email" id="email" placeholder="Escriba su email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ><br>
+     <label3 for="telefono">telefono</label3><br>
+     <input required type="number" name="telefono" id="telefono" placeholder="Escriba su telefóno" pattern="[0-9]+"><br>
+     <label4 for="comentario">comentario</label4><br>
+     <textarea required name="comentario" id="comentario" cols="35" rows="10"></textarea><br>
+     <input required type="checkbox" id="terminos" name="terminos" value="acepto">
+     <label for="terminos">Acepto los términos</label><br>
+     <input type="submit" value="procesar">
+     <input type="reset" value="borrar">
+    </form>
+    <footer>
+            <p>Santa Ursula, Carretera provincial 34</p><br>
+            <a href="www.facebook.com"><img src="../assets/fotos/facebook.png" width="100" height="100" alt="facebook"></a>
+            <a href="www.instagram.com"><img src="../assets/fotos/instagram.png" width="100" height="100" alt="instagram"></a>
+            <a href="www.youtube.com"><img src="../assets/fotos/youtube.png" width="100" height="100" alt="youtube"></a><br>
+            <p>922 30 29 40</p><br>
+            <p>Todos los derechos reservados</p>
+        </footer>
+</body>
+</html>
