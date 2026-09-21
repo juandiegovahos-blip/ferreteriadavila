@@ -1,0 +1,14 @@
+[
+    {
+        "titulo": "Brochas",
+        "imagen": "../assets/fotos/brochas.jpeg"
+    },
+    {
+        "titulo": "Martillo eléctrico",
+        "imagen": "../assets/fotos/martillo dewalt.jpeg"
+    },
+    {
+        "titulo": "Bote de pintura",
+        "imagen": "../assets/fotos/reventon.jpeg"
+    }
+]

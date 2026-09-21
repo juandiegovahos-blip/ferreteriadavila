@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="./css/styles.css">
+
+<title>Ferretería Dávila</title>
+
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<style>
+    /* SECCIÓN DE NOTICIAS */
+
+    #noticias {
+        padding: 50px 5%;
+        background-color: #f5f5f5;
+    }
+
+    #noticias h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    #lista-noticias {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .noticia {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .noticia img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .noticia-contenido {
+        padding: 20px;
+        flex: 1;
+    }
+
+    .noticia h3 {
+        margin-top: 0;
+        font-size: 20px;
+    }
+
+    .noticia-descripcion {
+        color: #555;
+        line-height: 1.5;
+    }
+
+    .noticia-info {
+        font-size: 13px;
+        color: #777;
+        margin-bottom: 15px;
+    }
+
+    .noticia a {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .noticia a:hover {
+        opacity: 0.8;
+    }
+
+    #error-noticias {
+        text-align: center;
+        color: #b00020;
+    }
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="../assets/fotos/sin_fondo.png"
+             width="40"
+             height="40"
+             alt="logo">
+    </div>
+
+    <ul>
+        <li>
+            <a href="./index.html" id="active">inicio</a>
+        </li>
+
+        <li>
+            <a href="./views/presupuesto.html" id="active2">
+                presupuesto
+            </a>
+        </li>
+
+        <li>
+            <a href="./views/imagenes.html" id="active3">
+                galeria
+            </a>
+        </li>
+
+        <li>
+            <a href="./views/contacto.html" id="active4">
+                contacto
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+<main>
+
+    <!-- PORTADA -->
+
+    <div style="position: relative; text-align: center; color: black;">
+
+        <img src="./assets/fotos/fondo.jpg"
+             width="1388"
+             height="900"
+             alt="almacen">
+
+    </div>
+
+
+    <div style="position: absolute;
+                top: 80%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: black;">
+
+        <h1>FERRETERÍA DÁVILA</h1>
+
+        <a href="https://wa.me/34603296892?text=Hola"
+           target="_blank"
+           style="position: fixed;
+                  top: 110%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background-color:#25d366;
+                  color:#FFF;
+                  padding:10px 20px;
+                  border-radius:5px;
+                  text-align:center;
+                  text-decoration:none;
+                  font-size:16px;">
+
+            <i class="fa fa-whatsapp"></i>
+            Haz un pedido
+
+        </a>
+
+    </div>
+
+
+    <!-- NOTICIAS -->
+     <div>
+        <h2 class="titulo-noticias">Últimas noticias</h2>
+    </div>
+
+    <section id="noticias">
+
+        <div id="lista-noticias">
+            <p>Cargando noticias...</p>
+        </div>
+
+        <p id="error-noticias"></p>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>Santa Ursula, Carretera provincial 34</p>
+
+    <br>
+
+    <a href="https://www.facebook.com">
+        <img src="./assets/fotos/facebook.png"
+             width="100"
+             height="100"
+             alt="facebook">
+    </a>
+
+    <a href="https://www.instagram.com">
+        <img src="./assets/fotos/instagram.png"
+             width="100"
+             height="100"
+             alt="instagram">
+    </a>
+
+    <a href="https://www.youtube.com">
+        <img src="./assets/fotos/youtube.png"
+             width="100"
+             height="100"
+             alt="youtube">
+    </a>
+
+    <br>
+
+    <p>922 30 29 40</p>
+
+    <br>
+
+    <p>Todos los derechos reservados</p>
+
+</footer>
+
+
+<!-- CARGAR NOTICIAS DESDE JSON -->
+
+<script>
+async function cargarNoticias() {
+
+    const contenedor = document.getElementById("lista-noticias");
+
+    try {
+
+        const respuesta = await fetch("./noticias.json");
+
+        if (!respuesta.ok) {
+            throw new Error(
+                "Error HTTP: " + respuesta.status
+            );
+        }
+
+        const noticias = await respuesta.json();
+
+        console.log("Noticias cargadas:", noticias);
+
+        contenedor.innerHTML = "";
+
+        noticias.forEach(noticia => {
+
+            const articulo = document.createElement("article");
+
+            articulo.className = "noticia";
+
+            articulo.innerHTML = `
+                <img src="${noticia.image}" 
+                     alt="${noticia.title}">
+
+                <div class="noticia-contenido">
+
+                    <h3>${noticia.title}</h3>
+
+                    <p class="noticia-info">
+                        ${noticia.source.name}
+                    </p>
+
+                    <p class="noticia-descripcion">
+                        ${noticia.description}
+                    </p>
+
+                    <a href="${noticia.url}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Leer noticia
+                    </a>
+
+                </div>
+            `;
+
+            contenedor.appendChild(articulo);
+
+        });
+
+    } catch (error) {
+
+        console.error("ERROR:", error);
+
+        contenedor.innerHTML =
+            "<p>No se pudieron cargar las noticias.</p>";
+    }
+}
+
+cargarNoticias();
+</script>
+
+</body> 
+</html>
