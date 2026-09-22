@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Presupuesto - Ferretería Dávila</title>
+    <script src="../js/presupuesto.js" defer></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="../assets/fotos/sin_fondo.png"
+                 width="40"
+                 height="40"
+                 alt="Logo de Ferretería Dávila">
+        </div>
+
+        <ul>
+            <li><a href="../index.html" id="active2">inicio</a></li>
+            <li><a href="./presupuesto.html" id="active">presupuesto</a></li>
+            <li><a href="./imagenes.html" id="active3">galería</a></li>
+            <li><a href="./contacto.html" id="active4">contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="contenedor-presupuesto">
+
+        <h1>Solicitud de presupuesto</h1>
+
+        <form id="formularioPresupuesto">
+
+            <fieldset>
+                <legend>Datos de contacto</legend>
+
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text"
+                           id="nombre"
+                           name="nombre"
+                           maxlength="15"
+                           pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+"
+                           required>
+                    <small id="errorNombre" class="error"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text"
+                           id="apellidos"
+                           name="apellidos"
+                           maxlength="40"
+                           pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+"
+                           required>
+                    <small id="errorApellidos" class="error"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono de contacto:</label>
+                    <input type="tel"
+                           id="telefono"
+                           name="telefono"
+                           maxlength="9"
+                           inputmode="numeric"
+                           pattern="[0-9]{9}"
+                           required>
+                    <small id="errorTelefono" class="error"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="ejemplo@correo.com"
+                           required>
+                    <small id="errorEmail" class="error"></small>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Presupuesto</legend>
+
+                <div class="campo">
+                    <label for="producto">Producto:</label>
+
+                    <select id="producto" name="producto" required>
+                        <option value="" data-precio="0">
+                            -- Selecciona un producto --
+                        </option>
+
+                        <option value="taladro" data-precio="80">
+                            Taladro - 80 €
+                        </option>
+
+                        <option value="martillo" data-precio="120">
+                            Martillo eléctrico - 120 €
+                        </option>
+
+                        <option value="caja" data-precio="60">
+                            Caja de herramientas - 60 €
+                        </option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="plazo">Plazo (meses):</label>
+
+                    <input type="number"
+                           id="plazo"
+                           name="plazo"
+                           min="1"
+                           required>
+
+                    <p class="ayuda-plazo">
+                        De 1 a 3 meses: 0% de descuento<br>
+                        De 4 a 6 meses: 5% de descuento<br>
+                        7 meses o más: 10% de descuento
+                    </p>
+                </div>
+
+                <div class="campo extras">
+                    <label>Extras:</label>
+
+                    <label>
+                        <input type="checkbox"
+                               name="extras"
+                               value="envio"
+                               data-precio="10">
+                        Envío a domicilio (+10 €)
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               name="extras"
+                               value="garantia"
+                               data-precio="20">
+                        Garantía ampliada (+20 €)
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               name="extras"
+                               value="embalaje"
+                               data-precio="5">
+                        Embalaje especial (+5 €)
+                    </label>
+                </div>
+
+                <div class="resultado">
+                    <p>
+                        Descuento aplicado:
+                        <strong id="descuento">0%</strong>
+                    </p>
+
+                    <p>
+                        Presupuesto final:
+                        <output id="presupuesto">0,00 €</output>
+                    </p>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Condiciones y envío del presupuesto</legend>
+
+                <label>
+                    <input type="checkbox"
+                           id="condiciones"
+                           name="condiciones"
+                           required>
+
+                    Acepto las condiciones de privacidad y el tratamiento
+                    de mis datos personales.
+                </label>
+            </fieldset>
+
+            <div class="botones">
+                <button type="submit">
+                    Enviar presupuesto
+                </button>
+
+                <button type="reset">
+                    Resetear formulario
+                </button>
+            </div>
+
+            <div id="mensajeFormulario"
+                 class="mensaje-formulario"
+                 role="alert"
+                 aria-live="polite">
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>Santa Ursula, Carretera provincial 34</p>
+
+        <br>
+
+        <a href="https://www.facebook.com">
+            <img src="../assets/fotos/facebook.png"
+                 width="100"
+                 height="100"
+                 alt="Facebook">
+        </a>
+
+        <a href="https://www.instagram.com">
+            <img src="../assets/fotos/instagram.png"
+                 width="100"
+                 height="100"
+                 alt="Instagram">
+        </a>
+
+        <a href="https://www.youtube.com">
+            <img src="../assets/fotos/youtube.png"
+                 width="100"
+                 height="100"
+                 alt="YouTube">
+        </a>
+
+        <br>
+
+        <p>922 30 29 40</p>
+
+        <br>
+
+        <p>Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
