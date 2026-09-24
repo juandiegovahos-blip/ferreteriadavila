@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Leaflet -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <title>Contacto - Ferretería Dávila</title>
+</head>
+
+
+<body>
+
+
+    <!-- MENÚ -->
+
+    <nav>
+
+        <div class="logo">
+
+            <img
+                src="../assets/fotos/sin_fondo.png"
+                width="500" height="500"
+                alt="Logo de Ferretería Dávila">
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="../index.html">
+                    inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="./presupuesto.html">
+                    presupuesto
+                </a>
+            </li>
+
+            <li>
+                <a href="./galeria.html">
+                    galeria
+                </a>
+            </li>
+
+            <li>
+                <a href="./contacto.html" class="nav-activa">
+                    contacto
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- CONTENIDO -->
+
+    <main class="contenedor-contacto">
+
+
+        <h1>Contacto</h1>
+
+
+        <section class="datos-contacto">
+
+            <h2>Ferretería Dávila</h2>
+            
+            <p>
+                <span class="etiqueta-contacto">Dirección</span>: 
+                Santa Ursula, Carretera provincial 34
+            </p>
+            
+            <p>
+                <span class="etiqueta-contacto">Teléfono</span>:
+                922 30 29 40
+            </p>
+
+            <p>
+                <span class="etiqueta-contacto">Correo</span>:
+                ferreteriadavila34@gmail.com
+            </p>
+
+        </section>
+
+
+        <h2>¿Cómo llegar?</h2>
+
+        <p>
+            Pulsa el botón para permitir que el navegador obtenga
+            tu ubicación y calcular la ruta hasta nuestra ferretería.
+        </p>
+
+
+        <button
+            class="boton-ubicacion"
+            id="btnUbicacion">
+
+            Calcular ruta desde mi ubicación
+
+        </button>
+
+
+        <div id="informacionRuta">
+
+            Pulsa el botón para calcular la ruta.
+
+        </div>
+
+
+        <!-- MAPA -->
+
+        <div id="mapa"></div>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            Santa Ursula, Carretera provincial 34
+        </p>
+<div class="redes-sociales">
+<a href="https://www.facebook.com/davilaferreteria">
+
+            <img
+                src="../assets/fotos/facebook.png"
+                width="512" height="512"
+                alt="Facebook">
+
+        </a>
+
+
+        <a href="https://www.instagram.com/davilaferreteria/">
+
+            <img
+                src="../assets/fotos/instagram.png"
+                width="512" height="512"
+                alt="Instagram">
+
+        </a>
+</div>
+<p>
+            922 30 29 40
+        </p>
+<p>
+            Todos los derechos reservados
+        </p>
+
+    </footer>
+
+
+    <!-- LEAFLET -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        defer>
+    </script>
+    <script src="../js/contacto.js" defer></script>
+</body>
+
+</html>
